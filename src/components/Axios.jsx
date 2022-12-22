@@ -41,23 +41,6 @@ export default function Axios() {
       .catch((err) => console.log(data[0]));
   }, []);
 
-  // input에 값이 들어오면
-  // const onchange = (e) => {
-  //   e.target.value &&
-  //     axios
-  //       .get("https://dapi.kakao.com/v3/search/book?target=title", {
-  //         params: {
-  //           query: e.target.value,
-  //         },
-  //         headers: {
-  //           Authorization: `KakaoAK 1b7afecb0cf1f8d7bbf63125a1e9dfcd`,
-  //         },
-  //       })
-  //       .then((res) => setData(res.data.documents))
-  //       .catch((err) => console.log(err));
-  // };
-
-  //  input에 값이 들어오고 엔터를 누르면 검색할 수 있게
   const onchange = (e) => {
     setTitle(e.target.value);
   };
@@ -92,11 +75,9 @@ export default function Axios() {
             onKeyPress={onKeyPress}
             onChange={onchange}
           />
-
-          {/* <button onClick={handleClick}>검색</button> */}
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4 pt-4 mx-4 ">
-          {data.map((data, i) => {
+          {data.map((data) => {
             return (
               <div
                 key={data.isbn}
